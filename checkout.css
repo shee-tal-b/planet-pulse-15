@@ -1,0 +1,117 @@
+   body {
+       background-color: #f8f9fa;
+   }
+
+   .container {
+       display: flex;
+       /* Use flexbox for layout */
+       justify-content: space-between;
+       /* Space between items */
+       background-color: #f8f9fa;
+       padding: 30px;
+       border-radius: 10px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       margin-top: 50px;
+   }
+
+   .left-side {
+       flex: 1;
+       /* Take up 1/3 of the available space */
+       margin-right: 20px;
+       /* Add some space between the left and right sides */
+   }
+
+   .right-side {
+       flex: 2;
+       /* Take up 2/3 of the available space */
+   }
+
+   h1 {
+       text-align: center;
+       margin-bottom: 30px;
+   }
+
+   .form-group {
+       margin-bottom: 5px;
+   }
+
+   .checkout-item img {
+       max-width: 100%;
+       height: auto;
+       max-height: 100px;
+       object-fit: cover;
+   }
+
+   .checkout-item .product-name {
+       font-size: 18px;
+       font-weight: bold;
+   }
+
+   .checkout-item .product-quantity {
+       width: 50px;
+       text-align: center;
+   }
+
+   .checkout-item .product-price {
+       text-align: right;
+   }
+
+   .total-section {
+       margin-top: 20px;
+   }
+
+   .card {
+       margin-top: 50px;
+   }
+
+   .card-body {
+       padding: 20px;
+   }
+
+   .place-order-btn {
+       margin-top: 20px;
+   }
+
+   .card {
+       display: none;
+       /* Initially hide the card */
+       margin-top: 30px;
+   }
+
+   .card-body {
+       padding: 20px;
+   }
+
+   #orderedProducts {
+       margin-top: 30px;
+   }
+
+   .place-order-btn,
+   .continue-btn,
+   .back-to-cart-btn {
+       margin-top: 20px;
+   }
+
+   .continue-btn {
+       margin-left: 100px;
+   }
+#checkoutButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+   #orderDetails {
+       margin-top: 20px;
+   }
+
+   .left-side {
+       flex: 1;
+       /* Take up 1/3 of the available space */
+       margin-right: 20px;
+       /* Add some space between the left and right sides */
+   }
+
+   .right-side {
+       flex: 2;
+       /* Take up 2/3 of the available space */
+   }
