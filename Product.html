@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="product.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Product Page</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              onclick="scrollToCategory('resuable-bags')"
+              href="#"
+              >Reusable Bags</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#"
+              onclick="scrollToCategory('water-bottles')"
+              >Water Bottle</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              onclick="scrollToCategory('food-container')"
+              href="#"
+              >Food Containers</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="scrollToCategory('accessory')" href="#"
+              >Lifestyle Accessories</a
+            >
+          </li>
+        </ul>
+        <div class="filter">
+          <input type="number" id="minPrice" placeholder="Min Price" />
+          <input type="number" id="maxPrice" placeholder="Max Price" />
+          <button onclick="filterProducts()">Filter</button>
+        </div>
+        <div class="ml-auto">
+          <div id="cart-icon" class="cart-icon">
+            <img src="/images/Basket-icon.PNG" alt="Basket Icon" />
+            <span id="cart-quantity">0</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      id="no-products-message"
+      style="display: none; text-align: center; margin-top: 20px"
+    >
+      <h3>No products found in the specified price range.</h3>
+    </div>
+    <div id="notification"></div>
+    <div id="cart-container"></div>
+    <div class="container">
+      <div class="row product-cards">
+        <div class="col-md-4">
+          <div class="product-card" id="resuable-bags">
+            <img src="/images/products/prod1.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Brown Tote Bag</h5>
+              <p class="card-text">Bag made of Cloth</p>
+              <p class="card-text">Price: $250.00</p>
+              <!--button
+                class="btn btn-primary"
+                onclick="addToCartAndRedirect('Brown Tote Bag', 1250.00, '/images/products/prod1.PNG')"
+              >
+                View
+              </button-->
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Brown Tote Bag', 125.00,'/images/products/prod1.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="/images/products/prod2.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Madhubani Basket</h5>
+              <p class="card-text">Basket Made of bamboo</p>
+              <p class="card-text">Price: $175.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Madhubani Basket', 175.00, '/images/products/prod2.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="/images/products/prod3.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Jute Bag</h5>
+              <p class="card-text">Strong and convenient bag</p>
+              <p class="card-text">Price: $150.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Jute Bag', 150.00,'/images/products/prod3.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="/images/products/prod4.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Floral Handbag</h5>
+              <p class="card-text">Made of jute</p>
+              <p class="card-text">Price: $200.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Floral Handbag', 200.00,'/images/products/prod4.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="/images/products/prod5.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Floral aesthica</h5>
+              <p class="card-text">
+                Purely made of 100% cotton Eco friendly Convenient
+              </p>
+              <p class="card-text">Price: $250.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Floral aesthica', 250.00,'/images/products/prod5.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="/images/products/prod6.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Floral Bag</h5>
+              <p class="card-text">Eco friendly Convenient</p>
+              <p class="card-text">Price: $350.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Floral Bag', 350.00,'/images/products/prod6.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card" id="water-bottles">
+            <img src="/images/products/prod7.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Kitty trendster</h5>
+              <p class="card-text">glass bottle</p>
+              <p class="card-text">Price: $250.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Kitty trendster', 250.00,'/images/products/prod7.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod8.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Cuprassa</h5>
+              <p class="card-text">
+                Bottle made up of copper Has really good health benefits
+              </p>
+              <p class="card-text">Price: $850.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Cuprassa', 850.00,'/images/products/prod8.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod9.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Fancy Bottle</h5>
+              <p class="card-text">
+                Glass bottle with protected silicon cover Good for outdoor
+                travels Easy to carry
+              </p>
+              <p class="card-text">Price: $250.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Fancy Bottle', 250.00,'/images/products/prod9.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod10.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Natura</h5>
+              <p class="card-text">Stainless steel water bottle Leak proof</p>
+              <p class="card-text">Price: $300.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Natura', 300.00,'/images/products/prod10.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod11.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Copper bottle</h5>
+              <p class="card-text">Matte finish made of 100% pure copper</p>
+              <p class="card-text">Price: $750.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Copper Bottle', 750.00,'/images/products/prod11.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod12.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Stainless steel water bottle</h5>
+              <p class="card-text">Leak proof vacuum insulated bottle</p>
+              <p class="card-text">Price: $520.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Stainless steel water bottle', 520.00,'/images/products/prod12.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card" id="food-container">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod13.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Food storage container</h5>
+              <p class="card-text">
+                Made of cornstarch , microwave and freezer safe pack of 10
+              </p>
+              <p class="card-text">Price: $800.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Food storage container', 800.00,'/images/products/prod13.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod14.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Disposable Plates</h5>
+              <p class="card-text">Pack of 10 bowls and 10 plates</p>
+              <p class="card-text">Price: $150.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Disposable Plates', 150.00,'/images/products/prod14.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod15.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Brown box</h5>
+              <p class="card-text">Box made of recycled paper Eco friendly</p>
+              <p class="card-text">Price: $80.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Brown box', 80.00,'/images/products/prod15.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod16.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Ezzy</h5>
+              <p class="card-text">
+                Palm leaf party pack of 12 Disposable plates
+              </p>
+              <p class="card-text">Price: $350.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Ezzy', 350.00,'/images/products/prod16.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod17.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Natura</h5>
+              <p class="card-text">Description for Product 1.</p>
+              <p class="card-text">Price: $320.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Natura', 20.00,'/images/products/prod17.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod18.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Boxit</h5>
+              <p class="card-text">Disposable , eco- friendly</p>
+              <p class="card-text">Price: $350.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Boxit', 350.00,'/images/products/prod18.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card" id="accessory">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod19.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Wooden combs</h5>
+              <p class="card-text">
+                Nat Habit Kacchi Neem Wooden Comb - Soaked In 17 Herbs, Neem &
+                Sesame Oil For Multi-Actions - Detangling, Frizz Control &
+                Shine,Suited For All Hair Types<br />
+                Buy one get one
+              </p>
+              <p class="card-text">Price: $250.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Wooden combs', 250.00,'/images/products/prod19.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod20.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Bathroom accessories set</h5>
+              <p class="card-text">Eco-friendly wooden</p>
+              <p class="card-text">Price: $80.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Bathroom accessories set', 80.00,'/images/products/prod20.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod21.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Product 1</h5>
+              <p class="card-text">Description for Product 1.</p>
+              <p class="card-text">Price: $20.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Product 1', 20.00,'/images/products/prod21.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod22.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Book</h5>
+              <p class="card-text">eco-friendly disposable bookp></p>
+              <p class="card-text">Price: $200.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Book', 200.00,'/images/products/prod22.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod23.PNG" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Ecsta accessories combo</h5>
+              <p class="card-text">Accessories for beach look</p>
+              <p class="card-text">Price: $50.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Ecsta accessories combo', 50.00,'/images/products/prod23.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="product-card">
+            <!-- Replace the source with the actual path or URL of your image -->
+            <img src="/images/products/prod24.PNG" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">Organic Necklace</h5>
+              <p class="card-text">Handmade eco-friendly necklace Jewelry</p>
+              <p class="card-text">Price: $75.00</p>
+
+              <button
+                class="btn btn-primary add-to-cart-button"
+                onclick="addToCart('Organic Necklace', 75.00,'/images/products/prod24.PNG')"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addToCart(productName, productPrice, productImage) {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var existingProduct = cartItems.find(
+          (item) => item.name === productName
+        );
+
+        if (existingProduct) {
+          existingProduct.quantity += 1;
+        } else {
+          var newProduct = {
+            name: productName,
+            price: productPrice,
+            quantity: 1,
+            image: productImage,
+          };
+          cartItems.push(newProduct);
+        }
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        updateCartIcon();
+        displayCart();
+        showNotification("Item added to cart!");
+      }
+
+      function displayCart() {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var cartContainer = document.getElementById("cart-container");
+        cartContainer.innerHTML = ""; // Clear previous content
+
+        cartItems.forEach(function (item) {
+          var cartItemDiv = document.createElement("div");
+          cartItemDiv.classList.add("cart-item");
+          cartItemDiv.style.position = "relative"; // Set position to relative for positioning child elements
+
+          var itemImageContainer = document.createElement("div");
+          itemImageContainer.style.position = "relative";
+          itemImageContainer.style.display = "inline-block";
+
+          var itemImage = document.createElement("img");
+          itemImage.src = item.image;
+          itemImage.alt = item.name;
+          itemImage.style.width = "50px";
+          itemImage.style.height = "50px";
+
+          // Create a remove button (cross icon)
+          var removeButton = document.createElement("button");
+          removeButton.innerHTML = "&times;"; // Display "×" (multiplication symbol)
+          removeButton.classList.add("remove-button");
+
+          // Set position to absolute and adjust top and right for positioning
+          removeButton.style.position = "absolute";
+          removeButton.style.top = "0";
+          removeButton.style.right = "0";
+          removeButton.style.display = "none"; // Initially hide the remove button
+
+          // Add a click event listener to remove the item when the button is clicked
+          removeButton.addEventListener("click", function () {
+            removeFromCart(item.name);
+          });
+
+          // Add event listeners to show/hide remove button on hover
+          itemImageContainer.addEventListener("mouseenter", function () {
+            removeButton.style.display = "block";
+          });
+
+          itemImageContainer.addEventListener("mouseleave", function () {
+            removeButton.style.display = "none";
+          });
+
+          // Append the image and remove button to the image container
+          itemImageContainer.appendChild(itemImage);
+          itemImageContainer.appendChild(removeButton);
+
+          // Append the image container to the cart item div
+          cartItemDiv.appendChild(itemImageContainer);
+
+          // Append the cart item div to the cart container
+          cartContainer.appendChild(cartItemDiv);
+        });
+      }
+
+      // Function to remove an item from the cart
+      function removeFromCart(productName) {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var updatedCart = cartItems.filter((item) => item.name !== productName);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+        displayCart(); // Update the displayed cart
+        updateCartIcon(); // Update the cart icon
+      }
+
+      function updateCartIcon() {
+        var cartIcon = document.getElementById("cart-icon");
+        var cartQuantity = document.getElementById("cart-quantity");
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var totalQuantity = cartItems.reduce(
+          (acc, item) => acc + item.quantity,
+          0
+        );
+
+        cartQuantity.textContent = totalQuantity;
+
+        cartIcon.classList.add("animated");
+        setTimeout(() => {
+          cartIcon.classList.remove("animated");
+        }, 500);
+      }
+
+      function showNotification(message) {
+        var notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.style.display = "block";
+
+        // Hide the notification after a certain time (e.g., 2 seconds)
+        setTimeout(() => {
+          notification.style.display = "none";
+        }, 2000);
+      }
+
+      // Call the displayCart function when the page loads to display the initial cart
+      displayCart();
+
+      function goToShoppingPage() {
+        window.location.href = "Shopping.html";
+      }
+
+      // Add an event listener to the cart icon
+      document
+        .getElementById("cart-icon")
+        .addEventListener("click", goToShoppingPage);
+
+      function initializeCart() {
+        localStorage.setItem("cartItems", JSON.stringify([]));
+      }
+
+      // Function to update the cart icon and quantity
+      function updateCartIcon() {
+        var cartQuantity = document.getElementById("cart-quantity");
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var totalQuantity = cartItems.reduce(
+          (acc, item) => acc + item.quantity,
+          0
+        );
+
+        cartQuantity.textContent = totalQuantity;
+      }
+      /*  function initializeCart() {
+              // Reset cartItems to an empty array
+              localStorage.setItem("cartItems", JSON.stringify([]));
+
+              // Call updateCartIcon to update the cart icon
+              updateCartIcon();
+            }
+      */
+      function scrollToCategory(categoryId) {
+        var targetElement = document.getElementById(categoryId);
+        if (targetElement) {
+          // Use smooth scrolling behavior
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Call initializeCart when the page loads to reset the cart items and update the cart icon
+
+      function initializeCart() {
+        // Check if cartItems key exists in localStorage
+        if (!localStorage.getItem("cartItems")) {
+          // If not, initialize it with an empty array
+          localStorage.setItem("cartItems", JSON.stringify([]));
+        }
+      }
+
+      initializeCart();
+
+      // Call updateCartIcon when the page loads to update the cart icon
+      updateCartIcon();
+      //filter
+      function filterProducts() {
+        var minPrice =
+          parseFloat(document.getElementById("minPrice").value) || 0;
+        var maxPrice =
+          parseFloat(document.getElementById("maxPrice").value) || Infinity;
+        var productCards = document.querySelectorAll(".product-card");
+
+        productCards.forEach(function (card) {
+          // Update the selector to find the correct element
+          var priceElement = card.querySelector(".card-text:nth-last-child(2)"); // Assuming the price is the second-to-last element
+          if (!priceElement) {
+            alert("Price element not found in product card:", card);
+            return; // Skip this iteration if the price element is not found
+          }
+
+          var priceText = priceElement.textContent;
+          var price = parseFloat(priceText.replace("Price: $", ""));
+
+          if (price >= minPrice && price <= maxPrice) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Add event listener to the "Enter" key in the input fields
+      document
+        .getElementById("minPrice")
+        .addEventListener("keyup", function (event) {
+          if (event.key === "Enter") {
+            filterProducts();
+          }
+        });
+
+      document
+        .getElementById("maxPrice")
+        .addEventListener("keyup", function (event) {
+          if (event.key === "Enter") {
+            filterProducts();
+          }
+        });
+      var noProductsMessage = document.getElementById("no-products-message");
+      if (!productsFound) {
+        noProductsMessage.style.display = "block";
+      } else {
+        noProductsMessage.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
