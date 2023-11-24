@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>ECOMMERCE</title>
+   
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <img src="./images/logo.JPG" alt="HealthCare" /> <span>Planet-Pulse</span>
+      </div>
+      <div class="nav-items">
+        <a href="#home">Home</a>
+        <a href="Product.html">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#" id="login-nav">Login</a>
+      </div>
+    </div>
+
+   
+    <div id="home" class="section" style="padding: 0; position: relative">
+      
+      <div class="background-container">
+        <img src="./images/home.JPG" alt="Healthcare" />
+         <div class="shop-now-button-container">
+    
+  </div>
+      </div>
+
+      <div class="container">
+        <div class="form-container">
+          <form id="registration-form">
+            <h2>Register</h2>
+            <button type="button" onclick="showRegistrationDialog()">
+              Register
+            </button>
+            <p>
+              Already have an account?
+              <a href="#" id="login-link">Login here</a>
+            </p>
+          </form>
+          <form id="login-form" style="display: none">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username" />
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Password"
+            /><br />
+            <input id="login-button" type="submit" value="Login" />
+            <p>
+              Don't hv an account?<br />
+              <a href="#" id="register-link">Register here</a>
+            </p>
+          </form>
+        </div>
+        <div id="registrationDialog" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeRegistrationDialog()"
+              >&times;</span
+            >
+            <p>Register as:</p>
+            <button onclick="redirectToPatientForm()">User</button>
+            <button onclick="redirectToDoctorForm()">Admin</button>
+          </div>
+        </div>
+        <div id="loginDialog" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeLoginDialog()">&times;</span>
+            <h2>Login</h2>
+            <input
+              type="text"
+              id="login-username-modal"
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              id="login-password-modal"
+              placeholder="Password"
+            />
+            <button
+              id="login-button"
+              type="button"
+              onclick="performLoginModal()"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="content-container">
+           
+         <section id="service-container">
+          <h2 class="section-title">Featured Products</h2>
+          <div class="service-container">
+            <div class="service">
+              <img src="/images/p1.png" alt="Prod 1" />
+              <h3>Paper Tape</h3>
+            
+            </div>
+            <div class="service">
+              <img src="/images/p2.png" alt="Prod 2" />
+              <h3>Accessory</h3>
+             
+            </div>
+            <div class="service">
+              <img src="/images/p12.png" alt="Prod 2" />
+              <h3>Eco-friendly food boxes</h3>
+              
+            </div>
+            <div class="service">
+              <img src="/images/p3.png" alt="Prod 2" />
+              <h3>Disposable party pack</h3>
+              
+            </div>
+            <div class="service">
+              <img src="/images/p4.png" alt="Prod 2" />
+              <h3>Humble Brush</h3>
+             
+            </div>
+            <div class="service">
+              <img src="/images/p5.png" alt="Prod 2" />
+              <h3>Hand Bag</h3>
+              
+            </div>
+            <div class="service">
+              <img src="/images/p6.png" alt="Prod 2" />
+              <h3>Hand Made necklace</h3>
+              
+            </div>
+             <div class="service">
+              <img src="/images/p7.png" alt="Prod 2" />
+              <h3>Book Mark</h3>
+             
+            </div>
+            <div class="service">
+              <img src="images/p8.png" alt="Prod 2" />
+              <h3>Slim Bag</h3>
+              
+            </div>
+            <div class="service">
+              <img src="/images/p9.png" alt="Prod 2" />
+              <h3>Tote Bag</h3>
+             
+            </div>
+            <div class="service">
+              <img src="/images/p10.png" alt="Prod 2" />
+              <h3>Basket</h3>
+              
+            </div>
+            <div class="service">
+              <img src="/images/p11.png" alt="Prod 3" />
+              <h3>Bottles</h3>
+             
+            </div>
+          </div>
+        </section>
+
+
+
+         <div id="about" class="section">
+            <div class="about-container">
+              <section class="about-section">
+                <h2>About Us</h2>
+                <p class="para">
+                  Welcome to <span class="company-name">PLanet Pulse</span>,
+                  an online platform where businesses sell products or services to customers.
+                  <span class="company-name">Planet Pulse</span>, it provides a virtual 
+                  storefront, allowing users to browse, select items, and make secure transactions, 
+                  simplifying the buying process for consumers and expanding market reach for 
+                  businesses. E-commerce has become a vital component of modern retail,
+                   offering convenience and accessibility for both buyers and sellers.
+                </p>
+
+                <h3>Our Vision</h3>
+                <p class="para">
+                  Our vision for the eco-friendly website is to promote 
+                  sustainability by integrating environmentally conscious
+                  practices in every aspect of our operations.
+                </p>
+
+                <h3>What Sets Us Apart</h3>
+                <p class="para">
+                  our unwavering commitment to sustainability—offering not just products 
+                  but a conscientious shopping experience that prioritizes eco-friendly 
+                  practices, quality, and a positive impact on the environment.
+                </p>
+
+                
+
+                <h3>Our Mission</h3>
+                <p class="para">
+                  Our mission is to provide a seamless and enjoyable
+                  online shopping experience while prioritizing sustainability,
+                  offering eco-friendly products, and fostering awareness about
+                  responsible consumer choices for a greener future.
+                </p>
+
+                <h3>
+                  Why Choose<span class="company-name">Planet Pulse</span>?
+                </h3>
+                
+                <p class="para">
+                  Choose our platform for a conscientious and enjoyable shopping experience, 
+                  where we prioritize sustainability by offering eco-friendly products, 
+                  and strive to make a positive impact on the environment 
+                  while meeting your needs with quality and style.
+                </p>
+
+                <p>
+                  Choose us for a unique and eco-conscious shopping experience, 
+                  where every purchase contributes to a greener future.
+                </p>
+              </section>
+            </div>
+          </div>
+
+          <!-- ... (previous HTML code) ... -->
+
+          <!-- Existing Login and Registration Forms -->
+          <div class="form-container">
+            <form id="registration-form">
+              <h2>Register</h2>
+              <button type="button" onclick="showRegistrationDialog()">
+                Register
+              </button>
+              <p>
+                Already have an account?
+                <a href="#" id="login-link">Login here</a>
+              </p>
+            </form>
+            <form id="login-form" style="display: none">
+              <h2>Login</h2>
+              <input type="text" id="login-username" placeholder="Username" />
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Password"
+              /><br />
+              <input id="login-button" type="submit" value="Login" />
+              <p>
+                Don't have an account?<br /><a href="#" id="register-link"
+                  >Register here</a
+                >
+              </p>
+            </form>
+          </div>
+
+          <div><!--  put content for register page --></div>
+
+          <!-- Existing Modals for Registration and Login -->
+          <!--div id="registrationDialog" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeRegistrationDialog()">&times;</span>
+        <p>Register as:</p>
+        <button onclick="redirectToPatientForm()">Patient</button>
+        <button onclick="redirectToDoctorForm()">Doctor</button>
+      </div>
+    </div-->*/
+
+          <div id="loginDialog" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeLoginDialog()">&times;</span>
+              <h2>Login</h2>
+              <input
+                type="text"
+                id="login-username-modal"
+                placeholder="Username"
+              />
+              <input
+                type="password"
+                id="login-password-modal"
+                placeholder="Password"
+              />
+              <button
+                id="login-button"
+                type="button"
+                onclick="performLoginModal()"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact" class="section">
+        <h2>Contact Us</h2>
+
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Email: info@example.com</p>
+          <p>Phone: +1 123 456 7890</p>
+          <p>Address: 123  St.Marthas , Wellness City</p>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <!-- Add more social media icons as needed -->
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3 class="foo">Contact Us</h3>
+        <p>Email: info@example.com</p>
+        <p>Phone: +1 123 456 7890</p>
+        <p>Address: 123 Health St, Wellness City</p>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://facebook.com" class="social-icon"
+          ><i class="fa fa-facebook-f"></i
+        ></a>
+        <a href="https://twitter.com" class="social-icon"
+          ><i class="fa fa-twitter"></i
+        ></a>
+        <a href="https://instagram.com" class="social-icon"
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <!-- Add more social media icons as needed -->
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href").substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      const registrationForm = document.getElementById("registration-form");
+      const loginForm = document.getElementById("login-form");
+      const loginLink = document.getElementById("login-link");
+      const registerLink = document.getElementById("register-link");
+      //const loginNavLink = document.querySelector('#loginnav-link');
+      const formContainer = document.querySelector(".form-container");
+      const bookAppointmentLink = document.querySelector("#login-nav");
+      bookAppointmentLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (formContainer.style.display === "block") {
+          formContainer.style.display = "none";
+        } else {
+          formContainer.style.display = "block";
+        }
+      });
+
+      loginLink.addEventListener("click", () => {
+        registrationForm.style.display = "none";
+        loginForm.style.display = "block";
+      });
+
+      registerLink.addEventListener("click", () => {
+        registrationForm.style.display = "block";
+        loginForm.style.display = "none";
+      });
+
+      function showRegistrationDialog() {
+        document.getElementById("registrationDialog").style.display = "block";
+      }
+
+      function closeRegistrationDialog() {
+        document.getElementById("registrationDialog").style.display = "none";
+      }
+
+      function redirectToPatientForm() {
+        window.location.href = "patient-registration.html";
+      }
+
+      function redirectToDoctorForm() {
+        window.location.href = "doctor-registration.html";
+      }
+
+      function closeLoginDialog() {
+        document.getElementById("loginDialog").style.display = "none";
+      }
+
+      function redirectToProductPage() {
+  // Redirect to product.html
+  window.location.href = 'Product.html';
+}
+    </script>
+  </body>
+</html>
